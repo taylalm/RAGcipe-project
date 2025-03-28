@@ -57,7 +57,7 @@ coverage.xml
 .ipynb_checkpoints
 
 # SQLite DB
-*.db
+
 
 # Local config
 .env
