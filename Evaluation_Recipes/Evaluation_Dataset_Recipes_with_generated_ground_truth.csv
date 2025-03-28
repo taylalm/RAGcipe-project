@@ -1,0 +1,24 @@
+prompt,ingredient_keywords,ground_truth_ids
+Recipes with fish,fish,2;6;153;197;198;213;218;244;254;255;273;288;289;313;323;329
+What dessert can I make with apples and honey?,apple;honey,143;232;304
+What can I do with asparagus?,asparagus,38;50;145;146;304;306;327
+What can I make with tofu?,tofu,3;65;149;151;152;218;219;234;244;270;313
+Dishes I can make with chicken,chicken,24;37;50;51;53;86;92;106;129;148;149;153;163;165;166;167;169;175;176;177;178;180;181;190;191;195;201;209;211;214;215;221;222;224;225;226;243;245;262;265;267;282;288;289;295;299;308;310;311;320
+"I want to use eggs,fish and tomatoes in a meal",eggs;tomatoes;fish,323
+Can I make something with banana and yogurt?,banana;yogurt,11
+Meals using avocado and chickpeas,avocado;chickpeas,3;74
+What can I make with prawns and garlic?,prawn;garlic,2;100;223;237;238;253;292;310
+Recipes using blueberries and milk,blueberries;milk,1;22;83
+High protein beef dish,beef,153;161
+What can I do with leftover rice?,rice,20;33;38;74;86;120;129;133;141;148;153;159;161;165;166;167;169;177;181;187;195;196;202;205;211;213;222;228;236;245;251;267;270;272;273;281;282;288;294;321
+Low carb cauliflower meal,cauliflower,19;208;280;305;317
+Quick pasta lunch with tuna,pasta;tuna,243
+What can I cook with mushrooms and onions?,mushrooms;onions,244;305
+Dessert ideas with mango,mango,234;265
+Low fat fish recipe,fish,2;6;153;197;198;213;218;244;254;255;273;288;289;313;323;329
+Something with brown rice and beans,brown rice;beans,202
+Breakfast ideas with oats and milk,oats;milk,83;92
+Grilled sandwich with cheese and tomato,cheese;tomato,168;193;194;242;243;277;296
+Vegan dish with chickpeas and spinach,chickpeas;spinach,3;74
+Curry dish with potatoes and peas,potatoes;peas,236;280
+Roasted vegetable dish with zucchini,zucchini,38;65;175;319

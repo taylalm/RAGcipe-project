@@ -1,0 +1,24 @@
+prompt,retrieved_ids,ground_truth_ids,precision@5,recall@5,hit@5
+Recipes with fish,198;213;289;6;313,2;6;153;197;198;213;218;244;254;255;273;288;289;313;323;329,1.0,0.312,1
+What dessert can I make with apples and honey?,143;232;1;5;141,143;232,0.4,1.0,1
+What can I do with asparagus?,145;146;327;304;38,38;50;145;146;304;306;327,1.0,0.714,1
+What can I make with tofu?,234;151;149;319;164,3;65;149;151;152;218;219;234;244;270;313,0.6,0.273,1
+Dishes I can make with chicken,177;92;295;175;106,24;37;50;51;53;86;92;106;129;148;149;153;163;165;166;167;169;175;176;177;178;180;181;190;191;195;201;209;211;214;215;221;222;224;225;226;243;245;262;265;267;282;288;289;295;299;308;310;311;320,1.0,0.1,1
+"I want to use eggs,fish and tomatoes in a meal",198;254;194;244;271,323,0.0,0.0,0
+Can I make something with banana and yogurt?,11;159;150;199;5,11,0.2,1.0,1
+Meals using avocado and chickpeas,3;74;20;14;51,3;74,0.4,1.0,1
+What can I make with prawns and garlic?,292;100;310;237;223,2;100;223;237;238;253;292;310,1.0,0.625,1
+Recipes using blueberries and milk,1;83;22;156;316,1;22;83,0.6,1.0,1
+High protein beef dish,161;26;153;276;3,153;161,0.4,1.0,1
+What can I do with leftover rice?,33;196;281;272;202,20;33;38;74;86;120;129;133;141;148;153;159;161;165;166;167;169;177;181;187;195;196;202;205;211;213;222;228;236;245;251;267;270;272;273;281;282;288;294;321,1.0,0.125,1
+Low carb cauliflower meal,19;317;208;305;154,19;208;280;305;317,0.8,0.8,1
+Quick pasta lunch with tuna,93;243;133;314;7,243,0.2,1.0,1
+What can I cook with mushrooms and onions?,211;113;285;167;53,244;305,0.0,0.0,0
+Dessert ideas with mango,234;265;246;324;298,234;265,0.4,1.0,1
+Low fat fish recipe,198;93;284;218;6,2;6;153;197;198;213;218;244;254;255;273;288;289;313;323;329,0.6,0.188,1
+Something with brown rice and beans,37;321;120;74;202,202,0.2,1.0,1
+Breakfast ideas with oats and milk,92;94;106;93;272,83;92,0.2,0.5,1
+Grilled sandwich with cheese and tomato,222;265;311;219;168,168;193;194;242;243;277;296,0.2,0.143,1
+Vegan dish with chickpeas and spinach,3;74;20;296;211,3;74,0.4,1.0,1
+Curry dish with potatoes and peas,226;236;196;249;270,236;280,0.2,0.5,1
+Roasted vegetable dish with zucchini,319;175;277;317;305,38;65;175;319,0.4,0.5,1

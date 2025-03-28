@@ -1,0 +1,23 @@
+prompt,retrieved_ids,ground_truth_ids,precision@1,recall@1,hit@1
+Recipes with fish,198,2;6;153;197;198;213;218;244;254;255;273;288;289;313;323;329,1.0,0.062,1
+What dessert can I make with apples and honey?,143,143;232,1.0,0.5,1
+What can I do with asparagus?,145,38;50;145;146;304;306;327,1.0,0.143,1
+What can I make with tofu?,234,3;65;149;151;152;218;219;234;244;270;313,1.0,0.091,1
+Dishes I can make with chicken,177,24;37;50;51;53;86;92;106;129;148;149;153;163;165;166;167;169;175;176;177;178;180;181;190;191;195;201;209;211;214;215;221;222;224;225;226;243;245;262;265;267;282;288;289;295;299;308;310;311;320,1.0,0.02,1
+"I want to use eggs,fish and tomatoes in a meal",198,323,0.0,0.0,0
+Can I make something with banana and yogurt?,11,11,1.0,1.0,1
+Meals using avocado and chickpeas,3,3;74,1.0,0.5,1
+What can I make with prawns and garlic?,292,2;100;223;237;238;253;292;310,1.0,0.125,1
+Recipes using blueberries and milk,1,1;22;83,1.0,0.333,1
+Recommend me beef dishes,153,153;161,1.0,0.5,1
+What can I do with leftover rice?,33,20;33;38;74;86;120;129;133;141;148;153;159;161;165;166;167;169;177;181;187;195;196;202;205;211;213;222;228;236;245;251;267;270;272;273;281;282;288;294;321,1.0,0.025,1
+What can I make with cauliflowers?,19,19;208;280;305;317,1.0,0.2,1
+Pasta lunch with tuna,243,,0.0,0.0,0
+What can I cook with mushrooms and onions?,211,305;53;113;120;166;167;195;211;244;285;313,1.0,0.091,1
+Dessert ideas with mango,234,234;265,1.0,0.5,1
+Something with brown rice and beans,37,120;202;321,0.0,0.0,0
+Breakfast ideas with oats and milk,92,92;93;198;203,1.0,0.25,1
+Grilled sandwich with cheese and tomato,222,168;193;194;277;296,0.0,0.0,0
+Vegan dish with chickpeas and spinach,3,3;74,1.0,0.5,1
+Curry dish with potatoes and peas,226,236;280,0.0,0.0,0
+Roasted vegetable dish with zucchini,319,38;65;175;319,1.0,0.25,1
