@@ -16,7 +16,8 @@ load_dotenv()
 # ========================
 
 def clean_recipes():
-    """Remove junk recipes, empty names, and fix quotes. Save cleaned DB and CSV."""
+    """Remove junk, fix typos, rename, and clean recipe names."""
+    # Load original
     conn = sqlite3.connect("recipes.db")
     df = pd.read_sql_query("SELECT * FROM recipes", conn)
     conn.close()
@@ -24,19 +25,30 @@ def clean_recipes():
     # 1. Remove rows with blank or null names
     df = df[df['name'].notna() & df['name'].str.strip().ne("")]
 
-    # 2. Remove promo recipes like "Lower in Sodium..." or "HEALTHIER CHOICE"
+    # 2. Remove promo or placeholder recipes
     df = df[~df['name'].str.contains("HEALTHIER|Lower in Sodium", case=False, na=False)]
-
-    # 3. Remove rows where name is exactly "Tip"
     df = df[~df['name'].str.strip().str.lower().eq("tip")]
 
-    # 4. Remove quotes in recipe names
+    # 3. Remove two known bad recipes
+    to_remove = ["Jeli Kacang Soya Longan", "Kari Tomato Dan Kacang Kuda"]
+    df = df[~df['name'].isin(to_remove)]
+
+    # 4. Rename specific entries
+    name_fixes = {
+        "and selenium": "Warm Beancurd Salad",
+        "this recipe": "Steamed Wholemeal Bread Cupcake",
+        "the sauce on top": "Rice Pudding Served With Yoghurt Sauce",
+        "Serve and enjoy": "Mixed Rice Braised Cabbage Rolls"
+    }
+    df['name'] = df['name'].replace(name_fixes)
+
+    # 5. Remove quotes from recipe names
     df['name'] = df['name'].str.replace('"', '', regex=False).str.strip()
 
-    # ✅ Save to CSV for inspection
+    # ✅ Save for inspection
     df[['id', 'name']].to_csv("recipes_before_emb.csv", index=False)
 
-    # Save cleaned recipes to SQLite
+    # Save cleaned DB
     cleaned_conn = sqlite3.connect("recipes_cleaned.db")
     df.to_sql("recipes", cleaned_conn, index=False, if_exists="replace")
     cleaned_conn.close()
@@ -231,7 +243,7 @@ if __name__ == "__main__":
 
     # clean_recipes()
     # check_token_lengths()
-    # embed_recipes()
-    # create_filtered_sqlite_db()
+    embed_recipes()
+    create_filtered_sqlite_db()
     parse_nutrition()
     pass
