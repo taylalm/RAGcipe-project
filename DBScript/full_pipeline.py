@@ -145,6 +145,17 @@ def create_filtered_sqlite_db():
 # STEP 5: PARSE NUTRITION
 # ========================
 
+
+def clean_energy_line(nutri_text):
+    """Handle special Energy (1 kcal = 4.2kJ) ... kcal format."""
+    # Match both '1kcal' and '1 kcal'
+    energy_match = re.search(r"Energy\s*\(1\s*kcal\s*=\s*4\.2kJ\)\s*(\d+(?:\.\d+)?)\s*k?cal", nutri_text, re.IGNORECASE)
+    if energy_match:
+        value = energy_match.group(1)
+        # Replace the whole thing with Energy: <value> kcal
+        nutri_text = re.sub(r"Energy\s*\(1\s*kcal\s*=\s*4\.2kJ\)\s*\d+(?:\.\d+)?\s*k?cal", f"Energy: {value} kcal", nutri_text, flags=re.IGNORECASE)
+    return nutri_text
+
 def parse_nutrition_data(nutri_text):
     """Extract numerical nutrition values from messy strings."""
     data = {
@@ -157,6 +168,15 @@ def parse_nutrition_data(nutri_text):
         "sodium": None
     }
 
+    if not nutri_text or nutri_text.strip().lower() in ["not available", "phone lines are open"]:
+        return data
+
+    # Fix energy line first
+    nutri_text = clean_energy_line(nutri_text)
+
+    # Remove junk like (g and %...)
+    nutri_text = re.sub(r"\(g\s+and\s+%[^)]*\)", "", nutri_text, flags=re.IGNORECASE)
+
     patterns = {
         "calories": re.compile(r"(?:Energy|Calories)[^:\d]*[:=]?\s*(\d+(?:\.\d+)?)\s*k?cal", re.IGNORECASE),
         "protein": re.compile(r"Protein[^:\d]*[:=]?\s*(\d+(?:\.\d+)?)\s*g", re.IGNORECASE),
@@ -168,7 +188,7 @@ def parse_nutrition_data(nutri_text):
     }
 
     for key, pattern in patterns.items():
-        match = pattern.search(nutri_text or "")
+        match = pattern.search(nutri_text)
         if match:
             try:
                 data[key] = float(match.group(1))
@@ -183,6 +203,8 @@ def parse_nutrition():
     df = pd.read_sql_query("SELECT * FROM recipes", conn)
     conn.close()
 
+    print(f"📥 Loaded {len(df)} rows from recipes_final.db")
+
     parsed_rows = []
     for _, row in df.iterrows():
         parsed = parse_nutrition_data(row['nutritional_data'])
@@ -190,11 +212,14 @@ def parse_nutrition():
 
     df_parsed = pd.DataFrame(parsed_rows)
 
+    print(f"📤 Saving {len(df_parsed)} rows to recipes_clean.db")
+
     conn_clean = sqlite3.connect("recipes_clean.db")
-    df_parsed.to_sql("recipes_clean", conn_clean, index=False, if_exists="replace")
+    df_parsed.to_sql("recipes_clean", conn_clean, index=False, if_exists='replace')
     conn_clean.close()
 
-    print(f"✅ Parsed nutrition and saved to recipes_clean.db ({len(df_parsed)} rows)")
+    print(f"✅ Parsed nutrition and saved to recipes_clean.db")
+
 
 
 # ========================
@@ -204,9 +229,9 @@ def parse_nutrition():
 if __name__ == "__main__":
     # Uncomment what you want to run:
 
-    clean_recipes()
-    check_token_lengths()
-    embed_recipes()
-    create_filtered_sqlite_db()
+    # clean_recipes()
+    # check_token_lengths()
+    # embed_recipes()
+    # create_filtered_sqlite_db()
     parse_nutrition()
     pass
