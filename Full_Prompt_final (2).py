@@ -4,7 +4,7 @@ try:
     # Re-map the built-in "sqlite3" to "pysqlite3"
     sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 except ImportError:
-    pass  # if pysqlite3 isn't found, fallback to system sqlite3
+    pass  #pysqlite3 isn't found, fallback to system sqlite3
 
 import chromadb
 from chromadb.utils import embedding_functions
@@ -31,7 +31,7 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=openai_api_key)
 
 # --- Initialize Cross-Encoder for Reranking ---
-cross_encoder_model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
+cross_encoder_model = CrossEncoder('./cross_encoder_model')
 
 def rerank(query, documents, metadatas, top_k=5):
     pairs = [(query, doc) for doc in documents]
